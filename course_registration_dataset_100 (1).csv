@@ -1,0 +1,101 @@
+Student_ID,Student_Name,Department,Year,Course_ID,Course_Name,Credits
+S2023001,Student_001,AIDS,2,CS106,AI Security,3
+S2023002,Student_002,ECE,1,CS109,Mobile Security,3
+S2023003,Student_003,CSE,1,CS108,Blockchain Security,3
+S2023004,Student_004,AIDS,1,CS109,Mobile Security,3
+S2023005,Student_005,EEE,2,CS104,Cyber Security,3
+S2023006,Student_006,IT,3,CS102,Network Security,3
+S2023007,Student_007,CSE,2,CS110,IoT Security,4
+S2023008,Student_008,ECE,4,CS103,Ethical Hacking,4
+S2023009,Student_009,IT,2,CS107,Data Protection,4
+S2023010,Student_010,IT,1,CS105,Cloud Security,4
+S2023011,Student_011,AIDS,1,CS105,Cloud Security,4
+S2023012,Student_012,ECE,1,CS109,Mobile Security,3
+S2023013,Student_013,IT,4,CS106,AI Security,3
+S2023014,Student_014,IT,4,CS107,Data Protection,4
+S2023015,Student_015,CSE,1,CS103,Ethical Hacking,4
+S2023016,Student_016,ECE,2,CS105,Cloud Security,4
+S2023017,Student_017,CSE,3,CS104,Cyber Security,3
+S2023018,Student_018,ECE,4,CS104,Cyber Security,3
+S2023019,Student_019,CSE,1,CS105,Cloud Security,4
+S2023020,Student_020,ECE,1,CS103,Ethical Hacking,4
+S2023021,Student_021,CSE,2,CS104,Cyber Security,3
+S2023022,Student_022,ECE,1,CS106,AI Security,3
+S2023023,Student_023,CSE,3,CS104,Cyber Security,3
+S2023024,Student_024,AIDS,2,CS109,Mobile Security,3
+S2023025,Student_025,ECE,1,CS101,Cryptography,4
+S2023026,Student_026,ECE,3,CS101,Cryptography,4
+S2023027,Student_027,AIDS,4,CS106,AI Security,3
+S2023028,Student_028,ECE,3,CS104,Cyber Security,3
+S2023029,Student_029,AIDS,2,CS108,Blockchain Security,3
+S2023030,Student_030,EEE,4,CS106,AI Security,3
+S2023031,Student_031,IT,4,CS104,Cyber Security,3
+S2023032,Student_032,ECE,3,CS109,Mobile Security,3
+S2023033,Student_033,ECE,1,CS103,Ethical Hacking,4
+S2023034,Student_034,AIDS,1,CS103,Ethical Hacking,4
+S2023035,Student_035,AIDS,2,CS109,Mobile Security,3
+S2023036,Student_036,EEE,3,CS107,Data Protection,4
+S2023037,Student_037,ECE,4,CS108,Blockchain Security,3
+S2023038,Student_038,CSE,2,CS108,Blockchain Security,3
+S2023039,Student_039,CSE,3,CS108,Blockchain Security,3
+S2023040,Student_040,CSE,2,CS107,Data Protection,4
+S2023041,Student_041,EEE,1,CS102,Network Security,3
+S2023042,Student_042,ECE,1,CS103,Ethical Hacking,4
+S2023043,Student_043,AIDS,3,CS108,Blockchain Security,3
+S2023044,Student_044,EEE,3,CS108,Blockchain Security,3
+S2023045,Student_045,IT,3,CS108,Blockchain Security,3
+S2023046,Student_046,AIDS,3,CS107,Data Protection,4
+S2023047,Student_047,EEE,1,CS106,AI Security,3
+S2023048,Student_048,EEE,2,CS107,Data Protection,4
+S2023049,Student_049,ECE,3,CS110,IoT Security,4
+S2023050,Student_050,AIDS,2,CS105,Cloud Security,4
+S2023051,Student_051,ECE,1,CS102,Network Security,3
+S2023052,Student_052,CSE,2,CS103,Ethical Hacking,4
+S2023053,Student_053,AIDS,3,CS104,Cyber Security,3
+S2023054,Student_054,AIDS,2,CS110,IoT Security,4
+S2023055,Student_055,IT,4,CS108,Blockchain Security,3
+S2023056,Student_056,AIDS,4,CS101,Cryptography,4
+S2023057,Student_057,EEE,3,CS107,Data Protection,4
+S2023058,Student_058,AIDS,3,CS101,Cryptography,4
+S2023059,Student_059,ECE,1,CS109,Mobile Security,3
+S2023060,Student_060,EEE,1,CS104,Cyber Security,3
+S2023061,Student_061,ECE,1,CS110,IoT Security,4
+S2023062,Student_062,ECE,2,CS109,Mobile Security,3
+S2023063,Student_063,IT,4,CS103,Ethical Hacking,4
+S2023064,Student_064,CSE,2,CS108,Blockchain Security,3
+S2023065,Student_065,AIDS,4,CS101,Cryptography,4
+S2023066,Student_066,AIDS,1,CS102,Network Security,3
+S2023067,Student_067,ECE,4,CS103,Ethical Hacking,4
+S2023068,Student_068,IT,1,CS101,Cryptography,4
+S2023069,Student_069,IT,3,CS107,Data Protection,4
+S2023070,Student_070,CSE,2,CS109,Mobile Security,3
+S2023071,Student_071,EEE,2,CS101,Cryptography,4
+S2023072,Student_072,EEE,4,CS107,Data Protection,4
+S2023073,Student_073,IT,3,CS104,Cyber Security,3
+S2023074,Student_074,ECE,2,CS108,Blockchain Security,3
+S2023075,Student_075,IT,3,CS105,Cloud Security,4
+S2023076,Student_076,IT,2,CS110,IoT Security,4
+S2023077,Student_077,AIDS,1,CS106,AI Security,3
+S2023078,Student_078,CSE,2,CS108,Blockchain Security,3
+S2023079,Student_079,ECE,1,CS108,Blockchain Security,3
+S2023080,Student_080,IT,2,CS104,Cyber Security,3
+S2023081,Student_081,ECE,1,CS104,Cyber Security,3
+S2023082,Student_082,IT,4,CS105,Cloud Security,4
+S2023083,Student_083,CSE,1,CS106,AI Security,3
+S2023084,Student_084,EEE,2,CS103,Ethical Hacking,4
+S2023085,Student_085,ECE,1,CS103,Ethical Hacking,4
+S2023086,Student_086,CSE,2,CS105,Cloud Security,4
+S2023087,Student_087,ECE,3,CS106,AI Security,3
+S2023088,Student_088,EEE,1,CS110,IoT Security,4
+S2023089,Student_089,IT,4,CS102,Network Security,3
+S2023090,Student_090,AIDS,2,CS101,Cryptography,4
+S2023091,Student_091,ECE,3,CS102,Network Security,3
+S2023092,Student_092,IT,2,CS107,Data Protection,4
+S2023093,Student_093,EEE,1,CS108,Blockchain Security,3
+S2023094,Student_094,CSE,1,CS108,Blockchain Security,3
+S2023095,Student_095,AIDS,2,CS103,Ethical Hacking,4
+S2023096,Student_096,AIDS,1,CS108,Blockchain Security,3
+S2023097,Student_097,ECE,4,CS101,Cryptography,4
+S2023098,Student_098,AIDS,4,CS110,IoT Security,4
+S2023099,Student_099,AIDS,1,CS103,Ethical Hacking,4
+S2023100,Student_100,EEE,4,CS109,Mobile Security,3
