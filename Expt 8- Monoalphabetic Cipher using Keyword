@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char plain[100];
+    char cipher[] = "CIPHERABDFGJKLMNOQSTUVWXYZ";
+    int i;
+
+    printf("Enter Plain Text (Lowercase): ");
+    scanf("%s", plain);
+
+    printf("Encrypted Text: ");
+
+    for(i = 0; plain[i] != '\0'; i++)
+    {
+        if(plain[i] >= 'a' && plain[i] <= 'z')
+            printf("%c", cipher[plain[i] - 'a']);
+    }
+
+    return 0;
+}

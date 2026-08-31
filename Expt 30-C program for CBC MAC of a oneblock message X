@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    int X = 25;       // One-block message
+    int T = 100;      // MAC(K, X)
+
+    int second_block = X ^ T;
+
+    printf("Message X        = %d\n", X);
+    printf("MAC(K, X) = T    = %d\n", T);
+    printf("Second block     = X XOR T = %d\n", second_block);
+
+    printf("\nMessage: X || (X XOR T)\n");
+    printf("CBC-MAC          = %d\n", T);
+
+    printf("\nThus, the adversary can construct\n");
+    printf("another message having the same MAC.\n");
+
+    return 0;
+}

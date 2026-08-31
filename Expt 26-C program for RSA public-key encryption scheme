@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int p = 59, q = 61;
+    int n = p * q;
+
+    int old_e = 31, old_d = 1579;
+    int new_e = 7, new_d;
+
+    int phi = (p - 1) * (q - 1);
+
+    for (new_d = 1; new_d < phi; new_d++) {
+        if ((new_d * new_e) % phi == 1)
+            break;
+    }
+
+    printf("n = %d\n", n);
+    printf("Old public key  = (%d, %d)\n", old_e, n);
+    printf("Old private key = (%d, %d)\n", old_d, n);
+
+    printf("New public key  = (%d, %d)\n", new_e, n);
+    printf("New private key = (%d, %d)\n", new_d, n);
+
+    printf("\nConclusion: Not Safe!\n");
+    printf("Bob must generate a new modulus n.\n");
+
+    return 0;
+}

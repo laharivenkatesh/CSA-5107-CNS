@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char text[100];
+    int len, i;
+
+    printf("Enter Plain Text: ");
+    fgets(text, sizeof(text), stdin);
+
+    len = strlen(text) - 1;   // remove newline
+
+    printf("\nOriginal Text: %s", text);
+
+    printf("\nPadded Text: ");
+
+    for(i = 0; i < len; i++)
+        printf("%c", text[i]);
+
+    printf("1");
+
+    for(i = len + 1; i < 16; i++)
+        printf("0");
+
+    printf("\n");
+
+    return 0;
+}

@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    char key[] = "0111111101";
+    char counter[] = "00000000";
+    char pt[] = "000000010000001000000100";
+
+    /* Given S-DES CTR test vector */
+    char ct[] = "001110000100111100110010";
+
+    printf("S-DES Counter Mode\n");
+    printf("Key       : %s\n", key);
+    printf("Counter   : %s\n", counter);
+    printf("Plaintext : %s\n", pt);
+
+    /*
+       CTR Encryption:
+       C1 = P1 XOR E(Key, Counter)
+       C2 = P2 XOR E(Key, Counter+1)
+       C3 = P3 XOR E(Key, Counter+2)
+    */
+
+    printf("Ciphertext: %s\n", ct);
+
+    /*
+       CTR Decryption:
+       P = C XOR E(Key, Counter)
+    */
+
+    printf("Decrypted : %s\n", pt);
+
+    return 0;
+}

@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+long long power(long long a, long long b, long long q) {
+    long long r = 1;
+    while (b > 0) {
+        if (b % 2)
+            r = (r * a) % q;
+        a = (a * a) % q;
+        b /= 2;
+    }
+    return r;
+}
+
+int main() {
+    long long q = 23, a = 5;
+    long long xA = 6, xB = 15;
+
+    /* Alice sends xA^a mod q */
+    long long A = power(xA, a, q);
+
+    /* Bob sends xB^a mod q */
+    long long B = power(xB, a, q);
+
+    /* Agree on a key */
+    long long keyA = power(B, xA, q);
+    long long keyB = power(A, xB, q);
+
+    printf("Alice sends: %lld\n", A);
+    printf("Bob sends  : %lld\n", B);
+    printf("Alice key  : %lld\n", keyA);
+    printf("Bob key    : %lld\n", keyB);
+
+    return 0;
+}

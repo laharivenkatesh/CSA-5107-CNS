@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+    char cipher[500], plain[500];
+    char freq[] = "ETAOINSHRDLCUMWFGYPBVKJXQZ";
+    int count[26] = {0}, order[26];
+    int i, j, temp, top;
+
+    printf("Enter ciphertext: ");
+    fgets(cipher, sizeof(cipher), stdin);
+
+    printf("Enter number of possible plaintexts: ");
+    scanf("%d", &top);
+
+    if (top > 10) top = 10;
+
+    /* Count frequencies */
+    for (i = 0; cipher[i]; i++)
+        if (isalpha(cipher[i]))
+            count[toupper(cipher[i]) - 'A']++;
+
+    /* Sort letters by frequency */
+    for (i = 0; i < 26; i++)
+        order[i] = i;
+
+    for (i = 0; i < 25; i++)
+        for (j = i + 1; j < 26; j++)
+            if (count[order[j]] > count[order[i]]) {
+                temp = order[i];
+                order[i] = order[j];
+                order[j] = temp;
+            }
+
+    printf("\nPossible plaintexts:\n");
+
+    /* Produce possible plaintexts */
+    for (int k = 0; k < top; k++) {
+        char map[26];
+
+        for (i = 0; i < 26; i++)
+            map[order[i]] = freq[(i + k) % 26];
+
+        for (i = 0; cipher[i]; i++) {
+            if (isalpha(cipher[i]))
+                plain[i] = map[toupper(cipher[i]) - 'A'];
+            else
+                plain[i] = cipher[i];
+        }
+
+        plain[i] = '\0';
+        printf("%d. %s", k + 1, plain);
+    }
+
+    return 0;
+}

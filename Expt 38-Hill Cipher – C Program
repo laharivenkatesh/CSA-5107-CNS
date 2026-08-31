@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int main()
+{
+    int K[2][2] = {{3, 3}, {2, 5}};
+    int invK[2][2];
+    int det, invDet;
+    char text[100];
+    int i, p1, p2, c1, c2;
+
+    printf("Enter plaintext (uppercase, even length): ");
+    scanf("%s", text);
+
+    /* Determinant */
+    det = (K[0][0] * K[1][1] - K[0][1] * K[1][0]) % 26;
+    if (det < 0) det += 26;
+
+    /* Find inverse of determinant modulo 26 */
+    for (invDet = 1; invDet < 26; invDet++)
+        if ((det * invDet) % 26 == 1)
+            break;
+
+    if (invDet == 26) {
+        printf("Key matrix is not invertible.\n");
+        return 1;
+    }
+
+    /* Inverse key matrix */
+    invK[0][0] =  K[1][1] * invDet % 26;
+    invK[0][1] = -K[0][1] * invDet % 26;
+    invK[1][0] = -K[1][0] * invDet % 26;
+    invK[1][1] =  K[0][0] * invDet % 26;
+
+    for (i = 0; i < 4; i++) {
+        if (invK[i / 2][i % 2] < 0)
+            invK[i / 2][i % 2] += 26;
+    }
+
+    printf("Ciphertext: ");
+
+    /* Encryption */
+    for (i = 0; text[i] != '\0'; i += 2) {
+        p1 = text[i] - 'A';
+        p2 = text[i + 1] - 'A';
+
+        c1 = (K[0][0] * p1 + K[0][1] * p2) % 26;
+        c2 = (K[1][0] * p1 + K[1][1] * p2) % 26;
+
+        printf("%c%c", c1 + 'A', c2 + 'A');
+    }
+
+    printf("\n");
+
+    return 0;
+}

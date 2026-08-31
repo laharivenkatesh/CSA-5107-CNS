@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main()
+{
+    int i;
+
+    /* Example DES subkeys */
+    int K[16] = {
+        1, 2, 3, 4, 5, 6, 7, 8,
+        9, 10, 11, 12, 13, 14, 15, 16
+    };
+
+    printf("Encryption Key Order:\n");
+
+    for(i = 0; i < 16; i++)
+    {
+        printf("K%d ", K[i]);
+    }
+
+    printf("\n\nDecryption Key Order:\n");
+
+    for(i = 15; i >= 0; i--)
+    {
+        printf("K%d ", K[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}

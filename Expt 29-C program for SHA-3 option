@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int lanes[25] = {0};
+    int i;
+
+    /* 1024-bit block = 16 lanes.
+       Assume every message lane has a nonzero bit. */
+    for (i = 0; i < 16; i++)
+        lanes[i] = 1;
+
+    printf("Rate lanes     : 16\n");
+    printf("Capacity lanes : 9\n");
+
+    printf("After absorbing P0:\n");
+
+    for (i = 0; i < 25; i++)
+        printf("Lane %2d = %d\n", i, lanes[i]);
+
+    printf("\nPermutation ignored.\n");
+    printf("Capacity lanes remain zero forever.\n");
+    printf("Time required for all capacity lanes to become nonzero: NEVER.\n");
+
+    return 0;
+}

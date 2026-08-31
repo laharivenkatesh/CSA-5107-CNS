@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+/* Simple hash-like function for demonstration */
+unsigned long hash_message(const char *message)
+{
+    unsigned long h = 0;
+
+    while (*message)
+    {
+        h = (h * 31 + (unsigned char)*message) % 1000003;
+        message++;
+    }
+
+    return h;
+}
+
+/*
+ * Simplified DSA-like signature.
+ * A new random k is generated for every signature.
+ */
+void dsa_sign(const char *message, unsigned long *r, unsigned long *s)
+{
+    unsigned long h = hash_message(message);
+
+    /* Random k generated for every signature */
+    unsigned long k = (rand() % 1000) + 1;
+
+    /* Simplified demonstration equations */
+    *r = (h + k * 17) % 1009;
+    *s = (h + k * 23) % 1009;
+
+    printf("DSA: k = %lu\n", k);
+}
+
+/*
+ * Simplified deterministic RSA-like signature.
+ * Same message + same private key -> same signature.
+ */
+unsigned long rsa_sign(const char *message)
+{
+    unsigned long h = hash_message(message);
+
+    /* Simplified deterministic calculation */
+    return (h * 17) % 1009;
+}
+
+int main(void)
+{
+    const char *message = "Hello World";
+
+    unsigned long r1, s1;
+    unsigned long r2, s2;
+
+    srand((unsigned int)time(NULL));
+
+    printf("Message: %s\n\n", message);
+
+    /* Sign the same message twice using DSA */
+    printf("DSA signatures:\n");
+
+    dsa_sign(message, &r1, &s1);
+    printf("Signature 1: (r = %lu, s = %lu)\n", r1, s1);
+
+    dsa_sign(message, &r2, &s2);
+    printf("Signature 2: (r = %lu, s = %lu)\n", r2, s2);
+
+    if (r1 != r2 || s1 != s2)
+        printf("DSA signatures are different.\n\n");
+    else
+        printf("DSA signatures are the same.\n\n");
+
+    /* Sign the same message twice using deterministic RSA */
+    unsigned long rsa1 = rsa_sign(message);
+    unsigned long rsa2 = rsa_sign(message);
+
+    printf("RSA signatures:\n");
+    printf("Signature 1: %lu\n", rsa1);
+    printf("Signature 2: %lu\n", rsa2);
+
+    if (rsa1 == rsa2)
+        printf("RSA signatures are identical.\n");
+    else
+        printf("RSA signatures are different.\n");
+
+    return 0;
+}

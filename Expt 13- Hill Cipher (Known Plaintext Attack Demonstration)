@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main()
+{
+    printf("Hill Cipher Known Plaintext Attack\n");
+    printf("---------------------------------\n");
+
+    printf("Plaintext  : HELP\n");
+    printf("Ciphertext : ZEBB\n");
+
+    printf("\nUsing the plaintext and ciphertext,\n");
+    printf("the attacker can determine the key matrix.\n");
+
+    return 0;
+}

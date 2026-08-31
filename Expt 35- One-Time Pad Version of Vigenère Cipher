@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char plaintext[100], ciphertext[100];
+    int key[100], n;
+
+    printf("Enter plaintext (uppercase): ");
+    scanf("%s", plaintext);
+
+    n = strlen(plaintext);
+
+    printf("Enter %d random key values (0-25):\n", n);
+    for (int i = 0; i < n; i++)
+        scanf("%d", &key[i]);
+
+    /* Encryption */
+    for (int i = 0; i < n; i++)
+        ciphertext[i] =
+            ((plaintext[i] - 'A' + key[i]) % 26) + 'A';
+
+    ciphertext[n] = '\0';
+
+    printf("Ciphertext: %s\n", ciphertext);
+
+    /* Decryption */
+    for (int i = 0; i < n; i++)
+        plaintext[i] =
+            ((ciphertext[i] - 'A' - key[i] + 26) % 26) + 'A';
+
+    plaintext[n] = '\0';
+
+    printf("Decrypted : %s\n", plaintext);
+
+    return 0;
+}

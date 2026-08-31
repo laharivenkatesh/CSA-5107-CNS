@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char c[100], p[100];
+    int key, i, count, n;
+
+    printf("Enter Cipher Text: ");
+    fgets(c, sizeof(c), stdin);
+
+    printf("Enter number of possible plaintexts: ");
+    scanf("%d", &n);
+
+    if(n > 26) n = 26;
+
+    printf("\nPossible Plaintexts:\n");
+
+    count = 0;
+
+    for(key = 0; key < 26 && count < n; key++)
+    {
+        for(i = 0; c[i] != '\0'; i++)
+        {
+            if(c[i] >= 'a' && c[i] <= 'z')
+                p[i] = (c[i] - 'a' - key + 26) % 26 + 'a';
+            else if(c[i] >= 'A' && c[i] <= 'Z')
+                p[i] = (c[i] - 'A' - key + 26) % 26 + 'A';
+            else
+                p[i] = c[i];
+        }
+
+        p[i] = '\0';
+
+        printf("Key %d : %s", key, p);
+        count++;
+    }
+
+    return 0;
+}

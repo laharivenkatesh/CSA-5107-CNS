@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <string.h>
+
+#define BLOCK 8
+
+void ECB(char *p, char *c, char *key)
+{
+    for (int i = 0; i < BLOCK; i++)
+        c[i] = p[i] ^ key[i];
+}
+
+void CBC(char *p, char *c, char *key, char *iv)
+{
+    for (int i = 0; i < BLOCK; i++)
+        c[i] = (p[i] ^ iv[i]) ^ key[i];
+}
+
+void CFB(char *p, char *c, char *key, char *iv)
+{
+    for (int i = 0; i < BLOCK; i++)
+        c[i] = p[i] ^ (iv[i] ^ key[i]);
+}
+
+void print(char *name, char *data)
+{
+    printf("%s: ", name);
+    for (int i = 0; i < BLOCK; i++)
+        printf("%02X ", (unsigned char)data[i]);
+    printf("\n");
+}
+
+int main()
+{
+    char plaintext[BLOCK] = "ABCDEFGH";
+    char key[BLOCK]       = "12345678";
+    char iv[BLOCK]        = "87654321";
+
+    char ecb[BLOCK], cbc[BLOCK], cfb[BLOCK];
+
+    ECB(plaintext, ecb, key);
+    CBC(plaintext, cbc, key, iv);
+    CFB(plaintext, cfb, key, iv);
+
+    print("Plaintext", plaintext);
+    print("ECB", ecb);
+    print("CBC", cbc);
+    print("CFB", cfb);
+
+    return 0;
+}

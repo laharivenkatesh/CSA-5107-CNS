@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char plain[100];
+    char key[] = "QWERTYUIOPASDFGHJKLZXCVBNM";
+    int i;
+
+    printf("Enter Plain Text (Uppercase): ");
+    scanf("%s", plain);
+
+    for(i = 0; plain[i] != '\0'; i++)
+    {
+        if(plain[i] >= 'A' && plain[i] <= 'Z')
+        {
+            plain[i] = key[plain[i] - 'A'];
+        }
+    }
+
+    printf("Cipher Text: %s\n", plain);
+
+    return 0;
+}

@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+    char cipher[500];
+    int top, shift, i, score;
+    char plain[500];
+
+    printf("Enter ciphertext: ");
+    fgets(cipher, sizeof(cipher), stdin);
+
+    printf("Enter number of possible plaintexts: ");
+    scanf("%d", &top);
+
+    if (top > 26)
+        top = 26;
+
+    printf("\nPossible plaintexts:\n");
+
+    /* Try all 26 possible shifts */
+    for (shift = 0; shift < top; shift++)
+    {
+        for (i = 0; cipher[i] != '\0'; i++)
+        {
+            if (isupper(cipher[i]))
+                plain[i] = ((cipher[i] - 'A' - shift + 26) % 26) + 'A';
+            else if (islower(cipher[i]))
+                plain[i] = ((cipher[i] - 'a' - shift + 26) % 26) + 'a';
+            else
+                plain[i] = cipher[i];
+        }
+
+        plain[i] = '\0';
+
+        printf("%d. %s", shift + 1, plain);
+    }
+
+    return 0;
+}

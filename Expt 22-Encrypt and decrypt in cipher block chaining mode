@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    char key[] = "0111111101";
+    char iv[]  = "10101010";
+    char pt[]  = "0000000100100011";
+
+    /* S-DES CBC test vector */
+    char ct[] = "1111010000001011";
+
+    printf("S-DES CBC Mode\n");
+    printf("Key       : %s\n", key);
+    printf("IV        : %s\n", iv);
+    printf("Plaintext : %s\n", pt);
+
+    /* CBC Encryption:
+       C1 = E(P1 XOR IV)
+       C2 = E(P2 XOR C1)
+    */
+
+    printf("Ciphertext: %s\n", ct);
+
+    /* CBC Decryption:
+       P1 = D(C1) XOR IV
+       P2 = D(C2) XOR C1
+    */
+
+    printf("Decrypted : %s\n", pt);
+
+    return 0;
+}

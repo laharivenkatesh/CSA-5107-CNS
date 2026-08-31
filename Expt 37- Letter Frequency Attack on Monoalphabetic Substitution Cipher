@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+    char cipher[500], plain[500];
+    int freq[26] = {0};
+    int order[26], top, i, j, temp;
+
+    /* English frequency order */
+    char english[] = "ETAOINSHRDLCUMWFGYPBVKJXQZ";
+
+    printf("Enter ciphertext:\n");
+    fgets(cipher, sizeof(cipher), stdin);
+
+    printf("How many possible plaintexts? ");
+    scanf("%d", &top);
+
+    /* Count letter frequencies */
+    for (i = 0; cipher[i] != '\0'; i++) {
+        if (isalpha(cipher[i]))
+            freq[toupper(cipher[i]) - 'A']++;
+    }
+
+    /* Sort letters by frequency */
+    for (i = 0; i < 26; i++)
+        order[i] = i;
+
+    for (i = 0; i < 25; i++) {
+        for (j = i + 1; j < 26; j++) {
+            if (freq[order[j]] > freq[order[i]]) {
+                temp = order[i];
+                order[i] = order[j];
+                order[j] = temp;
+            }
+        }
+    }
+
+    /*
+     * Generate possible plaintexts by trying
+     * different frequency mappings.
+     */
+    for (int k = 0; k < top; k++) {
+
+        char map[26];
+
+        for (i = 0; i < 26; i++)
+            map[i] = '?';
+
+        /* Shift the English frequency mapping */
+        for (i = 0; i < 26; i++)
+            map[order[i]] = english[(i + k) % 26];
+
+        for (i = 0; cipher[i] != '\0'; i++) {
+            if (isalpha(cipher[i])) {
+                int x = toupper(cipher[i]) - 'A';
+                plain[i] = map[x];
+            } else {
+                plain[i] = cipher[i];
+            }
+        }
+
+        plain[i] = '\0';
+
+        printf("\n%d. %s", k + 1, plain);
+    }
+
+    return 0;
+}

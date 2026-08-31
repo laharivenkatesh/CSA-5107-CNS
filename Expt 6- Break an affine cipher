@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main()
+{
+    char cipher[100];
+    int i, p;
+
+    int a_inv = 9;   // Inverse of 3 modulo 26
+    int b = 15;
+
+    printf("Enter Cipher Text (Uppercase): ");
+    scanf("%s", cipher);
+
+    printf("Decrypted Text: ");
+
+    for(i = 0; cipher[i] != '\0'; i++)
+    {
+        p = (a_inv * ((cipher[i] - 'A') - b + 26)) % 26;
+        printf("%c", p + 'A');
+    }
+
+    return 0;
+}

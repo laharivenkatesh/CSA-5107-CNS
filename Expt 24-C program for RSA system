@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    int e = 31, n = 3599;
+    int p = 59, q = 61;
+    int phi = (p - 1) * (q - 1);
+    int d;
+
+    /* Find d such that (d * e) mod phi = 1 */
+    for (d = 1; d < phi; d++) {
+        if ((d * e) % phi == 1)
+            break;
+    }
+
+    printf("p = %d\n", p);
+    printf("q = %d\n", q);
+    printf("phi(n) = %d\n", phi);
+    printf("Public Key  = (%d, %d)\n", e, n);
+    printf("Private Key = (%d, %d)\n", d, n);
+
+    return 0;
+}

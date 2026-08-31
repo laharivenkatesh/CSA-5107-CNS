@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char plaintext[100], ciphertext[100];
+    int a, b, i, n;
+
+    printf("Enter plaintext (uppercase): ");
+    scanf("%s", plaintext);
+
+    printf("Enter a and b: ");
+    scanf("%d %d", &a, &b);
+
+    /* Check whether a is valid */
+    if (a % 2 == 0 || a == 13) {
+        printf("Invalid value of a!\n");
+        return 1;
+    }
+
+    n = strlen(plaintext);
+
+    /* Encryption */
+    for (i = 0; i < n; i++)
+        ciphertext[i] =
+            ((a * (plaintext[i] - 'A') + b) % 26) + 'A';
+
+    ciphertext[n] = '\0';
+
+    printf("Ciphertext: %s\n", ciphertext);
+
+    return 0;
+}

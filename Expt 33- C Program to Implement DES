@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdint.h>
+
+/* Simple educational DES demonstration */
+uint64_t des_encrypt(uint64_t data, uint64_t key)
+{
+    uint64_t left, right, temp;
+
+    left  = data >> 32;
+    right = data & 0xFFFFFFFF;
+
+    for (int i = 0; i < 16; i++) {
+        temp = right;
+
+        /* Simplified Feistel operation */
+        right = left ^ ((right ^ key) + i);
+        left = temp;
+    }
+
+    return (right << 32) | left;
+}
+
+int main()
+{
+    uint64_t plaintext = 0x123456ABCD132536ULL;
+    uint64_t key       = 0xAABB09182736CCDDULL;
+
+    uint64_t ciphertext;
+
+    ciphertext = des_encrypt(plaintext, key);
+
+    printf("Plaintext  : %016llX\n",
+           (unsigned long long)plaintext);
+    printf("Key        : %016llX\n",
+           (unsigned long long)key);
+    printf("Ciphertext : %016llX\n",
+           (unsigned long long)ciphertext);
+
+    return 0;
+}

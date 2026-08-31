@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main()
+{
+    int C[28] = {
+        1,0,1,0,1,0,1,0,1,0,1,0,1,0,
+        1,0,1,0,1,0,1,0,1,0,1,0,1,0
+    };
+
+    int D[28] = {
+        0,1,0,1,0,1,0,1,0,1,0,1,0,1,
+        0,1,0,1,0,1,0,1,0,1,0,1,0,1
+    };
+
+    int i;
+
+    printf("First 24 bits from C:\n");
+    for(i = 0; i < 24; i++)
+        printf("%d", C[i]);
+
+    printf("\nSecond 24 bits from D:\n");
+    for(i = 0; i < 24; i++)
+        printf("%d", D[i]);
+
+    printf("\n\n48-bit DES Subkey:\n");
+
+    for(i = 0; i < 24; i++)
+        printf("%d", C[i]);
+
+    for(i = 0; i < 24; i++)
+        printf("%d", D[i]);
+
+    return 0;
+}

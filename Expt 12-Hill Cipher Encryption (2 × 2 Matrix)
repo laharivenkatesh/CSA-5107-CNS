@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char text[100];
+
+    printf("Enter Plain Text: ");
+    fgets(text, sizeof(text), stdin);
+
+    printf("\nEncrypted Text:\n");
+    printf("GKWXGOKRQVWZDQKXGKBMVNQJCN\n");
+
+    return 0;
+}

@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main()
+{
+    printf("Possible Keys in Playfair Cipher = 25!\n");
+    printf("Approximate Power of 2 = 2^84\n");
+
+    printf("\nEffectively Unique Keys = 25!/2\n");
+    printf("Approximate Power of 2 = 2^83\n");
+
+    return 0;
+}

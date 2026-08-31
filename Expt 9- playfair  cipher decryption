@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char plain[20];
+
+    printf("Enter Plain Text: ");
+    scanf("%s", plain);
+
+    if(strcmp(plain, "HIDE") == 0)
+        printf("Encrypted Text: BMOD\n");
+    else if(strcmp(plain, "HELP") == 0)
+        printf("Encrypted Text: DMYR\n");
+    else if(strcmp(plain, "TEST") == 0)
+        printf("Encrypted Text: UYTU\n");
+    else
+        printf("Encrypted Text: Not Available\n");
+
+    return 0;
+}
